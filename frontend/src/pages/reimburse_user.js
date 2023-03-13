@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 
 export default function ReimburseUser(){
     const [reimburse, setReimburse]=useState([]); 
-    const [id_user, setIdUser]=useState(Cookies.get('id_user'));
+    let [id_user, setIdUser]=useState(0);
     const [tanggal, setTanggal]=useState("");
     const [nominal, setNominal]=useState(0);
     const [deskripsi, setDeskripsi]=useState("");
@@ -19,6 +19,7 @@ export default function ReimburseUser(){
     const navigate = useNavigate();
 
     token = Cookies.get("token")
+    id_user = Cookies.get('id_user')
 
     useEffect(() => {
         getReimburse()
@@ -55,7 +56,7 @@ export default function ReimburseUser(){
         e.preventDefault()
     
         let form = {
-          id_user: localStorage.getItem('id_user'),
+          id_user: id_user,
           tanggal: tanggal,
           nominal: nominal,
           deskripsi: deskripsi
