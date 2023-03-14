@@ -9,7 +9,6 @@ const reimburse = model.reimburse;
 const xlsx = require('xlsx')
 const path = require("path")
 const fs = require("fs")
-const Announcement = require('../models/announcement');
 
 // Schedule the function to run at midnight every day
 const job = scheduler.scheduleJob('0 0 * * *', async () => {
